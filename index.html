@@ -97,8 +97,8 @@
     </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center py-4">
+     <!-- Footer -->
+     <footer class="text-center py-4">
         <p>&copy; 2023 FCWM</p>
     </footer>
 
@@ -112,7 +112,7 @@
                 url: "https://formspree.io/f/xleyzdaq",
                 data: $("#myForm").serialize(),
                 success: function() {
-                    location.reload();
+                    window.location.href = window.location.href;
                 }
             });
         }
