@@ -112,7 +112,12 @@
                 url: "https://formspree.io/f/xleyzdaq",
                 data: $("#myForm").serialize(),
                 success: function() {
-                    window.location.href = window.location.href;
+                    setTimeout(function() {
+                        location.reload();
+                    }, 500); // Retrasar 500ms para asegurarse de que el formulario se haya enviado antes de recargar
+                },
+                error: function() {
+                    alert('An error occurred. Please try again.');
                 }
             });
         }
