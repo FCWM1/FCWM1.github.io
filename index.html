@@ -92,7 +92,7 @@
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="button" id="submitButton" class="btn btn-primary">Send</button>
         </form>
     </div>
     </section>
@@ -108,15 +108,15 @@
     <!-- Custom JS -->
     <script>
         $(document).ready(function(){
-            $('#myForm').on('submit', function(e){
-                e.preventDefault(); // Prevent the form from submitting the traditional way
+            $('#submitButton').on('click', function(e){
+                e.preventDefault(); 
 
                 $.ajax({
                     url: 'https://formspree.io/f/xleyzdaq',
                     type: 'POST',
-                    data: $(this).serialize(), // Serialize the form data
+                    data: $('#myForm').serialize(), 
                     success: function(){
-                        location.reload(); // Reload the page on successful submission
+                        window.location.reload(true); 
                     },
                     error: function(){
                         alert('There was an error sending the message.');
