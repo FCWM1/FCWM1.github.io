@@ -118,7 +118,7 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data); // Puedes eliminar esto o manejar la respuesta como necesites
-                    this.reset(); // Limpia los campos del formulario
+                    location.reload(); // Esta línea recargará la página después de enviar el formulario
                 })
                 .catch((error) => {
                     console.error('Error:', error); // Muestra un error si la solicitud falla
