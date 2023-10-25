@@ -30,8 +30,8 @@
 
     <!-- Header -->
     <header class="bg-primary text-white text-center py-5">
-        <h1>Welcome to Our Classical Music Site</h1>
-        <p>Enjoy wonderful melodies and learn more about your favorite composers.</p>
+        <h1>Welcome to Our Classical Music Web Site</h1>
+        <p>Enjoy unforgettable and wonderful melodies and learn more about your favorite composers and the story behind each song.</p>
     </header>
 
     <!-- Videos -->
@@ -74,6 +74,37 @@
             text-align: center;
         }
     </style>
+
+   <!-- History of Videos with Video Embeds -->
+    <section id="history" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">History of Featured Videos</h2>
+
+            <!-- New Video 1 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Y6duGqhGbD4?si=Ri5BbeZAGPQpMxx0" title="🎚️ Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Spring: I. Allegro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎚️ Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Spring: I. Allegro</h5>
+                    <p>Vivaldi's "The Four Seasons" is a set of four violin concertos, each representing a different season. "Spring," the first concerto, is vibrant and full of life, embodying the essence of the season with its lively tempo and joyful melodies. The first movement, "Allegro," is particularly famous for its exuberant energy and has become one of Vivaldi's most recognized pieces.</p>
+                </div>
+            </div>
+
+            <!-- New Video 2 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/HC_aTgJrjW4?si=OFna8PEOI7EpIvUB" title="♬FCWM - Nikolai Lugansky 🎹 - Frantz Liszt - La Campanella" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>♬ Nikolai Lugansky 🎹 - Frantz Liszt - La Campanella</h5>
+                    <p>"La Campanella," which means "The Little Bell," is the third of Franz Liszt’s six Grandes Études de Paganini, and is known for its demanding technical challenges and fast-paced trills. Nikolai Lugansky, a renowned Russian pianist, brings this piece to life with his exceptional skill and precision, capturing the delicate yet powerful spirit of Liszt’s composition.</p>
+                </div>
+            </div>
+
+            <!-- ... [other video sections] ... -->
+        </div>
+    </section>
     
     <!-- Contact -->
     <section id="contact" class="bg-light py-5">
@@ -125,11 +156,11 @@
                     setTimeout(() => {
                         location.reload();
                     }, 2000); // 2 seconds delay before reloading the page
-                } else {
+                } else {    
                     status.innerHTML = "Oops! There was a problem submitting your form";
                 }
             }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form";
+                status.innerHTML = "Oops! There was a problem submi tting your form";
             });
         }
         form.addEventListener("submit", handleSubmit);
