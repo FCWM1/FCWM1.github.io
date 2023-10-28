@@ -6,8 +6,82 @@
         <title>FCWM</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }
+
+            .subscribe-container {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            .alert-update {
+                padding: 20px;
+                background-color: #f44336; /* Red */
+                color: white;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                text-align: center;
+            }
+            .alert-update strong {
+                font-size: 1.2em;
+            }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (evento) => {
+        const seccionDeVideos = document.querySelector('#history');
+        const iframes = seccionDeVideos.querySelectorAll('iframe');
+        const desplegableDeVideos = document.getElementById('videoSelector');
+        
+        iframes.forEach(iframe => {
+            const elementoTitulo = iframe.parentElement.nextElementSibling.querySelector('h5');
+            const titulo = elementoTitulo ? elementoTitulo.innerText : 'Video Sin Título';
+            const opcion = document.createElement('option');
+            opcion.value = iframe.src;
+            opcion.innerText = titulo;
+            desplegableDeVideos.appendChild(opcion);
+        });
+        
+        desplegableDeVideos.addEventListener('change', function() {
+            const url = this.value;
+            if (url) window.open(url, '_blank').focus();
+        });
+        });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe Button</title>
+    <link rel="stylesheet" href="styles.css">
+
     </head>
 <body>
+
+    <div class="alert-update">
+        <strong>Attention!</strong> We're updating this page, so information here may be susceptible to changes.
+    </div>
+
+    <div class="subscribe-container">
+        <h1>Subscribe to Our Channel!</h1>
+        <div class="button-wrapper">
+            <div class="g-ytsubscribe" data-channelid="UCf5spExuFqKVhrXAgQrk_5Q" data-layout="full" data-count="default"></div>
+        </div>
+    </div>
+    <script src="https://apis.google.com/js/platform.js"></script>  
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -27,7 +101,14 @@
             </div>
         </div>
     </nav>
-
+    
+    <div id="videoDropdown" class="mb-3">
+        <label for="videoSelector">Choice a video:</label>
+        <select id="videoSelector" class="form-select">
+          <option selected>Elige...</option>
+        </select>
+    </div>
+      
     <!-- Header -->
     <header class="bg-primary text-white text-center py-5">
         <h1>Welcome to Our Classical Music Web Site</h1>
@@ -86,19 +167,426 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/Y6duGqhGbD4?si=Ri5BbeZAGPQpMxx0" title="🎚️ Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Spring: I. Allegro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <h5>🎚️ Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Spring: I. Allegro</h5>
+                    <h5>🎚️FCWM - Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Spring: I. Allegro</h5>
                     <p>Vivaldi's "The Four Seasons" is a set of four violin concertos, each representing a different season. "Spring," the first concerto, is vibrant and full of life, embodying the essence of the season with its lively tempo and joyful melodies. The first movement, "Allegro," is particularly famous for its exuberant energy and has become one of Vivaldi's most recognized pieces.</p>
                 </div>
             </div>
 
             <!-- New Video 2 -->
             <div class="row align-items-center mb-5">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 order-md-2">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/HC_aTgJrjW4?si=OFna8PEOI7EpIvUB" title="♬FCWM - Nikolai Lugansky 🎹 - Frantz Liszt - La Campanella" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <h5>♬ Nikolai Lugansky 🎹 - Frantz Liszt - La Campanella</h5>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>♬FCWM - Nikolai Lugansky 🎹 - Frantz Liszt - La Campanella</h5>
                     <p>"La Campanella," which means "The Little Bell," is the third of Franz Liszt’s six Grandes Études de Paganini, and is known for its demanding technical challenges and fast-paced trills. Nikolai Lugansky, a renowned Russian pianist, brings this piece to life with his exceptional skill and precision, capturing the delicate yet powerful spirit of Liszt’s composition.</p>
+                </div>
+            </div>
+
+            <!-- New Video 3 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MfKwmKM14-0?si=ZBA7-_l4-sJEcs3M" title="🎸FCWM - Mozart - Rondo Alla Turka - Electric Guitar Cover By Joshkim81 📻" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎸FCWM - Mozart - Rondo Alla Turka - Electric Guitar Cover By Joshkim81 📻</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 4 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4-bRyUFTbAA?si=M5Vbcqk66GX2FRQT" title="FCWM - Beethoven - Fur Elise Classical Music Remix 🎛️ - Dubstep Remix By Bite Star 💿" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM - Beethoven - Fur Elise Classical Music Remix 🎛️ - Dubstep Remix By Bite Star 💿</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 5 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/moKislpgyWU?si=cOGPaS_ddSMPJG_u" title="FCWM - Chopin 🎹 - Nocturne In E♭, Op. 9 No. 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>FCWM - Chopin 🎹 - Nocturne In E♭, Op. 9 No. 2</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 6 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9rVAg0x84Fo?si=GWrAE4LhNxjXz-7h" title="FCWM - Johann Strauss II - Voice of Spring ​​🌼" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM - Johann Strauss II - Voice of Spring ​​🌼​</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 7 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/RsadCPPgvZg?si=tQVD-PQ04o_IDmHK" title="♬FCWM - Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Winter❄️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>♬FCWM - Antonio Lucio Vivaldi 🎻 - The 4 Seasons: Winter❄️</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 8 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PJzChFh3qUM?si=kGk2gbQR1-CE4Hh0" title="FCWM - P.I. Tchaikovsky – Swan Lake🦢, Act II: No.10 Scene (Moderato)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM - P.I. Tchaikovsky – Swan Lake🦢, Act II: No.10 Scene (Moderato)</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 9 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ghLzY3pM_Rw?si=EBBRorpk9FnY7EjD" title="👑FCWM - Edvard Grieg - In the Hall of the Mountain ⛰️ King" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>👑FCWM - Edvard Grieg - In the Hall of the Mountain ⛰️ King</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 10 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NFKMfcuQbfc?si=BoOyU9Tha-jL7LIO" title="♬FCWM - Beethoven 🎹 - Moonlight🌙 Sonata 3rd Movement" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>♬FCWM - Beethoven 🎹 - Moonlight🌙 Sonata 3rd Movement</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 11 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BnLHMVgrmbU?si=unQpIiXBWZYn_Bh9" title="🎺FCWM - Johann Strauss - Radetzky March🚶" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎺FCWM - Johann Strauss - Radetzky March🚶</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 12 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rgB42mzBVUg?si=IXx7fEWOUd-_qDtk" title="☀️FCWM - Antonio Lucio Vivaldi - The 4 Seasons: Summer🏖️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>☀️FCWM - Antonio Lucio Vivaldi - The 4 Seasons: Summer🏖️</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 13 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VHx1OrcRlH4?si=Q5o1Q7THHyg3SoOl" title="❤️FCWM - P.I. Tchaikovsky - Valse Sentimentale🕺💃" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>❤️FCWM - P.I. Tchaikovsky - Valse Sentimentale🕺💃</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 14 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DEtqsJPo_Cs?si=aTYB42d6ixIm2LTu" title="🌅FCWM - Edvard Grieg  - Morning Mood (Peer Gynt)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🌅FCWM - Edvard Grieg  - Morning Mood (Peer Gynt)</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 15 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D9FMbKhljVo?si=_lxNgfFF-T8gaWoA" title="♩FCWM - Ride of the Valkyries 🪓- Richard Wagner" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>♩FCWM - Ride of the Valkyries 🪓- Richard Wagner</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 16 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/r2jnOH3koA4?si=A-v2w3G2_cxqWrFC" title="🔔FCWM - Messiah🧔🏽 - Händel - Hallelujah Chorus🙏" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🔔FCWM - Messiah🧔🏽 - Händel - Hallelujah Chorus🙏</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 17 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nWFc9xjRYv8?si=0DxpiJpwpJlnZuYs" title="♬FCWM -  Beethoven - 5th Symphony in C Minor♪" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>♬FCWM -  Beethoven - 5th Symphony in C Minor♪</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 18 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/O3zB_Ih81QA?si=3OFybEka20hA0Eoe" title="🎺FCWM - Bizet - Les Toreadors🐂" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🎺FCWM - Bizet - Les Toreadors🐂</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 19 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/M230ZH5rInw?si=WjEznLvG1LhwrFbA" title="🎼FCWM - Mendelssohn - Wedding March🧖‍♀️💍🧖‍♂️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎼FCWM - Mendelssohn - Wedding March🧖‍♀️💍🧖‍♂️</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 20 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/amfTRXbPTeM?si=0AmJLpfjzTSCGRj9" title="♪FCWM - Schubert - Ave 🕊️ Maria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>♪FCWM - Schubert - Ave 🕊️ Maria</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 21 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4JJdOlkvRaU?si=HqJMHgWlM45jtsv8" title="🎹FCWM - Mozart - Rondo Alla Turka" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎹FCWM - Mozart - Rondo Alla Turka</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 22 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/z12BMEoUMoQ?si=1nOJ0cJF3cO-GsWq" title="🎻FCWM - Eine Kleine Nachtmusik 🌃 - Mozart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🎻FCWM - Eine Kleine Nachtmusik 🌃 - Mozart</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 23 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/8AMz5MDkLd4?si=9AQojXs668nTobtD" title="🎚️FCWM - Symphony No. 40 (Molto Allegro) - Mozart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎚️FCWM - Symphony No. 40 (Molto Allegro) - Mozart</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 24 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/OOF9yoNSyUE?si=RQjLvE6fsqggr5vS" title="FCWM - Waltz of the Flower 🌸 (The Nutcracker 🌰) - P.I. Tchaikovsky" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM - Waltz of the Flower 🌸 (The Nutcracker 🌰) - P.I. Tchaikovsky</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 25 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Wy1ljnALcNU?si=q0LO22ENupWGoDGt" title="FCWM - P.I Tchaikovsky - Dance 🩰 of the Sugar Plum Fairy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>FCWM - P.I Tchaikovsky - Dance 🩰 of the Sugar Plum Fairy</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 26 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dB3QukoHOP8?si=ZVcQSkI-COJHcMSF" title="🎹FCWM - Beethoven - Fur Elise🎼" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🎹FCWM - Beethoven - Fur Elise🎼</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 27 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/N1GVLMIbPOI?si=EFtzJQFE8RurDs9w" title="🎛️FCWM - The Blue 🔵 Danube Waltz - Johann Strauss II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎛️FCWM - The Blue 🔵 Danube Waltz - Johann Strauss II</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 28 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Iw3MIe8jcuM?si=Chr-TuvIp45nZYYW" title="🎻FCWM - Requiem Mass in D Minor, K. 626: VII. Lacrimosa - Mozart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🎻FCWM - Requiem Mass in D Minor, K. 626: VII. Lacrimosa - Mozart</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 29 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_tNwYW6pJW0?si=sQFQxlKHvW7YDKRm" title="🎵FCWM - Morgenblätter 🌅📰 Op. 279 - Johann Strauss II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎵FCWM - Morgenblätter 🌅📰 Op. 279 - Johann Strauss II</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 30 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ni3IjGr09tE?si=9viylHPz3ZFESLrN" title="FCWM - Accelerationen, Op. 234 🏃‍♂️ - Johann Strauss II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM - Accelerationen, Op. 234 🏃‍♂️ - Johann Strauss II</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 31 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0PZcNich65I?si=ED0h6-lOHsHGc8kj" title="FCWM -  🔮Fantaisie-Impromptu (Op. 66) - Frédéric Chopin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>FCWM -  🔮Fantaisie-Impromptu (Op. 66) - Frédéric Chopin</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 32 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <<iframe width="560" height="315" src="https://www.youtube.com/embed/1f2vyTyJ_nY?si=FvRievU6C6TyHvFw" title="🎵 FCWM -  Piano🎹 Sonata No. 16 in C Major  - Mozart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>🎵 FCWM -  Piano🎹 Sonata No. 16 in C Major  - Mozart</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 33 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D2McDRy7HIY?si=H14n_2jzxAyexTjB" title="👀FCWM - Antonín Leopold Dvořák - Symphony No. 9 'From The New World' 🌍 E Minor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>👀FCWM - Antonín Leopold Dvořák - Symphony No. 9 "From The New World" 🌍 E Minor </h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 34 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rYBwGxI5SvA?si=CCsNYuw3KFG3zTCV" title="FCWM - Intermezzo from 'Cavalleria Rusticana' ⚔️ - Pietro Mascagni 🇮🇹" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM - Intermezzo from "Cavalleria Rusticana" ⚔️ - Pietro Mascagni 🇮🇹</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 35 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nzuQxi1Km9k?si=YPt9cH0-rF5sUI1N" title="🎵FCWM -  Canon in D ☀️ - Pachelbel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎵FCWM -  Canon in D ☀️ - Pachelbel</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 36 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/89ik5_fuxu4?si=V1Krzqecv2VvdCQA" title="FCWM -  String Quintet in E Major, G. 282: III. Minuetto - Trio  - Luigi Boccherini" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM -  String Quintet in E Major, G. 282: III. Minuetto - Trio  - Luigi Boccherini</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 37 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/OhUnA2zZ8-g?si=Z5QwY3Fd9BKOe41i" title="🎶FCWM -  Erik Satie - Gymnopédie No.1 (lent et doloreux)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>🎶FCWM -  Erik Satie - Gymnopédie No.1 (lent et doloreux)</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 38 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3 order-md-2">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/i6o7mFyEYO4?si=KJVRLP07lvwrKao0" title="FCWM -  Prelude in C Sharp Minor (Op. 3 No. 2)  - Rachmaninoff" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3 order-md-1">
+                    <h5>FCWM -  Prelude in C Sharp Minor (Op. 3 No. 2)  - Rachmaninoff</h5>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- New Video 39 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/61VJFkh_lMc?si=bYQkIH5VDh43HZhJ" title="FCWM -  🌃Nocturnes, Op. 55: No.1 in F Minor  - Frédéric Chopin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>FCWM -  🌃Nocturnes, Op. 55: No.1 in F Minor  - Frédéric Chopin</h5>
+                    <p></p>
                 </div>
             </div>
 
@@ -165,6 +653,5 @@
         }
         form.addEventListener("submit", handleSubmit);
     </script>
-
 </body>
 </html>
