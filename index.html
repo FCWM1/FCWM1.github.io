@@ -45,20 +45,21 @@
         const iframes = seccionDeVideos.querySelectorAll('iframe');
         const desplegableDeVideos = document.getElementById('videoSelector');
         
-        iframes.forEach(iframe => {
-            const elementoTitulo = iframe.parentElement.nextElementSibling.querySelector('h5');
-            const titulo = elementoTitulo ? elementoTitulo.innerText : 'Video Sin Título';
-            const opcion = document.createElement('option');
-            opcion.value = iframe.src;
-            opcion.innerText = titulo;
-            desplegableDeVideos.appendChild(opcion);
+    iframes.forEach(iframe => {
+        const elementoTitulo = iframe.parentElement.nextElementSibling.querySelector('h5');
+        const titulo = elementoTitulo ? elementoTitulo.innerText : 'Video Sin Título';
+        const opcion = document.createElement('option');
+        opcion.value = iframe.src;
+        opcion.innerText = titulo;
+        desplegableDeVideos.appendChild(opcion);
+    });
+    
+    desplegableDeVideos.addEventListener('change', function() {
+        const url = this.value;
+        if (url && url !== '') window.open(url, '_blank').focus();
         });
-        
-        desplegableDeVideos.addEventListener('change', function() {
-            const url = this.value;
-            if (url) window.open(url, '_blank').focus();
-        });
-        });
+    });
+
     </script>
     
     <meta charset="UTF-8">
@@ -103,11 +104,12 @@
     </nav>
     
     <div id="videoDropdown" class="mb-3">
-        <label for="videoSelector">Choice a video:</label>
+        <label for="videoSelector">Choose a video:</label>
         <select id="videoSelector" class="form-select">
-          <option selected>Elige...</option>
+          <option value="" disabled selected hidden>Choose...</option>
         </select>
     </div>
+    
       
     <!-- Header -->
     <header class="bg-primary text-white text-center py-5">
