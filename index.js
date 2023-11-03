@@ -14,7 +14,21 @@ const card = elements.create('card', {
         iconColor: '#fa755a'
       }
     }
+  })
+  fetch('/ruta-para-procesar-pago', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      payment_method_id: paymentMethodId,
+    }),
+  })
+  .then((response) => response.json())
+  .then((result) => {
+    // Maneja el resultado aquí (incluyendo el manejo de errores del servidor)
   });
+;
   card.mount('#card-element');
   const form = document.getElementById('payment-form');
 
