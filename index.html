@@ -6,6 +6,8 @@
         <title>FCWM</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -36,6 +38,30 @@
             }
             .alert-update strong {
                 font-size: 1.2em;
+            }
+            #payment-form {
+            text-align: center; /* Esto centrará el botón dentro del formulario */
+            }
+
+            #payment-form button {
+            background-color: #5469d4;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.25em; /* Hace el texto más grande */
+            }
+
+            /* Puedes añadir :hover y :focus para mejorar la interacción */
+            #payment-form button:hover {
+            background-color: #4353a0;
+            }
+
+            #payment-form button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
             }
     </style>
 
@@ -666,5 +692,17 @@
         }
         form.addEventListener("submit", handleSubmit);
     </script>
+
+    <!-- Tu formulario para el pago -->
+  <form id="payment-form">
+    <div id="card-element">
+      <!-- Stripe usará este elemento para insertar el formulario de tarjeta -->
+    </div>
+    <button type="submit">Donate!</button>
+    <div id="card-errors" role="alert"></div>
+  </form>
+
+  <script src="js/pago.js"></script>
+
 </body>
 </html>
