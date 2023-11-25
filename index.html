@@ -629,9 +629,22 @@
                 </div>
             </div>
 
+            <!-- New Video 41 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 mb-3">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/USJ6d3-saBc?si=AweieS8WaWYZC3-_" title="FCWM - Orfeo ed Euridice, Wq. 30 / Act 2 - Dance of the Blessed Spirits - Christoph Willibald Gluck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>FCWM - J.S. Bach - Orchestral Suite No. 3 in D Major, BWV 1068 - II. Air on the G String 🎻</h5>
+                    <p>The "Air on the G String" is one of Johann Sebastian Bach's most enduring and beloved pieces, with a melody that soars above a serene and stately bass line. The second movement of his Orchestral Suite No. 3 exudes elegance and grace, inviting listeners into a contemplative space filled with the beauty of Baroque sophistication. Often played at solemn occasions, the "Air" is a poignant reminder of Bach's genius in creating profound emotion through simplicity and purity of form.</p>
+                </div>
+            </div>
+
             <!-- ... [other video sections] ... -->
         </div>
     </section>
+
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5FoF706pPwasEUupaAKDsA?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--> ->
     
     <!-- Contact -->
     <section id="contact" class="bg-light py-5">
@@ -693,17 +706,28 @@
         form.addEventListener("submit", handleSubmit);
     </script>
 
-    <!-- Tu formulario para el pago -->
-  <form id="payment-form">
-    <div id="card-element">
-      <!-- Stripe usará este elemento para insertar el formulario de tarjeta -->
-    </div>
-    <button type="submit">Donate!</button>
-    <div id="card-errors" role="alert"></div>
-  </form>
+    <button id="donateButton">Donar 10€</button>
 
-  <script src="index.js"></script>
-  <script src="pago.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+    var stripe = Stripe('tu_clave_api_publica');
+
+    var donateButton = document.getElementById('donateButton');
+    donateButton.addEventListener('click', function() {
+        stripe.redirectToCheckout({
+        lineItems: [{price: 'price_1O8rE4KKvMgHeT1c0kDzuRuo', quantity: 1}],
+        mode: 'payment',
+        successUrl: 'tu_sitio_web.com/success',
+        cancelUrl: 'tu_sitio_web.com/cancel'
+        })
+        .then(function (result) {
+        if (result.error) {
+            alert(result.error.message);
+        }
+        });
+    });
+    </script>
+
 
 
 </body>
